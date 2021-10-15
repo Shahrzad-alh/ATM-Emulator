@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>ATM</title>
+    <link href="/css/styles.css" rel="stylesheet"/>
+  </head>
+  <body>
+    <h3>Access Denied</h3>
+    <div>
+      <!--Logged in user: <b class="user" th:inline="text"> [[${#httpServletRequest.remoteUser}]] </b>-->
+      Logged in user: <b class="user" th:text="${name}"></b>
+      <form method="POST" th:action="@{/app-logout}">
+        <input type="submit" value="Logout"/>
+      </form>
+    </div>
+    <p class="error" th:text="${errorMsg}">Error</p>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>ATM</title>
+    <link href="/css/styles.css" rel="stylesheet"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/js/main.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <h3>Account Details</h3>
+    <div>
+      <!--Logged in user: <b class="user" th:inline="text"> [[${#httpServletRequest.remoteUser}]] </b>-->
+      Logged in user: <b class="user" th:text="${name}"></b>
+      <form method="POST" th:action="@{/app-logout}">
+        <input type="submit" value="Logout"/>
+      </form>
+    </div>
+    <br/>
+
+    <div>Checking Balance: <span th:text="${accountInfo.checking}"></span></div>
+    <div>Savings Balance: <span th:text="${accountInfo.saving}"></span></div>
+    <br/><br/>
+
+    <div>Withdraw from Checking:</div>
+    <input id="withdraw-checking" type="number"></input>
+    <button onclick="location.href='/app/account/withdrawChecking/'+$('#withdraw-checking').val()">Withdraw</button>
+    <br/><br/>
+    <div>Withdraw from Savings:</div>
+    <input id="withdraw-savings" type="number"></input>
+    <button onclick="location.href='/app/account/withdrawSavings/'+$('#withdraw-savings').val()">Withdraw</button>
+    <br/><br/><br/>
+
+    <div>Transfer from Checking to Savings:</div>
+    <input id="transfer1" type="number"></input>
+    <button onclick="location.href='/app/account/transferCToS/'+$('#transfer1').val()">Transfer</button>
+    <br/><br/>
+    <div>Transfer from Savings to Checking:</div>
+    <input id="transfer2" type="number"></input>
+    <button onclick="location.href='/app/account/transferSToC/'+$('#transfer2').val()">Transfer</button>
+    <br/><br/>
+  </body>
+</html>

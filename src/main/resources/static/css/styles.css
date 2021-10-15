@@ -1,0 +1,18 @@
+html, body {
+    text-align: center;
+    zoom: 1.25;
+    -moz-transform: scale(1.25);
+    -moz-transform-origin: 0 0;
+}
+.error {
+    color: red;
+    font-size: 20px;
+}
+.warning {
+    color: forestgreen;
+    font-size: 20px;
+}
+.user {
+    color: darkslateblue;
+    font-size: 15px;
+}
