@@ -9,7 +9,8 @@ public class Application {
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
 
-        //Used to encrypt passwords
+        //Used to encrypt passwords for atm.sql
+
         //BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         //System.out.println(encoder.encode("123"));
     }

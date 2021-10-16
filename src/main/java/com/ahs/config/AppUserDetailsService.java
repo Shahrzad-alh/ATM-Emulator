@@ -18,19 +18,23 @@ public class AppUserDetailsService implements org.springframework.security.core.
     @Autowired
     private IUserInfoRep userInfoRep;
 
-    public static final int MAX_FAILED_ATTEMPTS = 3;
+    public static final int MAX_FAILED_ATTEMPTS = 3;   // Maximum authorized failure attempts are 3
     public static final int LOCK_DURATION = 2 * 60 * 60 * 1000; // Lock Time : 2 Hours
 
     @Override
     public UserDetails loadUserByUsername(String userName)
             throws UsernameNotFoundException {
         UserInfo activeUserInfo = userInfoRep.findByUserName(userName);
+        if(activeUserInfo == null)
+            return null;
         if(activeUserInfo.getAccountLocked()) {
+            // Check to see if the Lock-Time gets over if yes unlock the account!
             if (activeUserInfo.getLockTime().before(new Date(System.currentTimeMillis() - LOCK_DURATION))) {
                 activeUserInfo.setAccountLocked(false);
                 activeUserInfo.setFailedAttempt((short) 0);
             }
         }
+        // Save lock settings
         userInfoRep.save(activeUserInfo);
         GrantedAuthority authority = new SimpleGrantedAuthority("ROLE_ADMIN");
         UserDetails userDetails = new User(activeUserInfo.getUserName(),

@@ -5,13 +5,13 @@
     <link href="/css/styles.css" rel="stylesheet"/>
   </head>
   <body>
-    <h3>ATM</h3>
-    <p class="error" th:if="${param.error}">Bad Credentials</p>
+    <h3 class="header">ATM</h3>
+    <p class="mytextarea" th:if="${param.error}">Bad Credentials</p>
     <p class="error" th:text="${error}">Error</p>
-    <form method="POST" th:action="@{/app-login}">
-      Card Number: <input name="app_username" type="text"/><br/><br/>
-      Card PIN: <input name="app_password" type="password"/><br/><br/>
-      <input type="submit" value="Login"/>
+    <form class="form" method="POST" th:action="@{/app-login}">
+      Card Number: <input class="myinput" name="app_username" type="text"/><br/><br/>
+      Card PIN: <input class="myinput" name="app_password" type="password"/><br/><br/>
+      <input class = "mysubmit" type="submit" value="Login"/>
     </form>
   </body>
 </html>

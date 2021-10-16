@@ -1,18 +1,359 @@
-html, body {
-    text-align: center;
-    zoom: 1.25;
-    -moz-transform: scale(1.25);
-    -moz-transform-origin: 0 0;
-}
+
 .error {
-    color: red;
-    font-size: 20px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    appearance: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    border: 1px solid #cbd1d8;
+    font-size: large;
+    line-height: 1.5;
+    resize: both;
+    overflow: auto;
+    background: #fff;
+    color: #f11a06;
+    transition: all .2s ease-in-out;
 }
+
+.error:focus {
+    outline: 0;
+    border-color: #e51111;
+    box-shadow: 0 0 0 3px rgba(0, 121, 250, .3);
+}
+
 .warning {
     color: forestgreen;
-    font-size: 20px;
+    font-size: 16px;
 }
 .user {
     color: darkslateblue;
     font-size: 15px;
+}
+.header {
+    background-color: #F1F1F1;
+    text-align: center;
+    padding: 10px;
+}
+
+.footer {
+    background-color: #F1F1F1;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+html, body  {
+    align-content: center;
+    margin: 0;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: 12px
+}
+
+.form{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: 12px
+}
+
+.content{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: 12px
+}
+
+.myselect {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 100%;
+    max-width: 100px;
+    padding: 6px 12px;
+    border-radius: 4px;
+    border: 1px solid #cbd1d8;
+    line-height: 1.5;
+    background: #fff no-repeat center right 12px / 18px 18px;
+    transition: all .2s ease-in-out;
+}
+
+/*IE*/
+.myselect::-ms-expand {
+    display: none;
+}
+
+.myselect:focus {
+    outline: 0;
+    border-color: #7bbaff;
+    box-shadow: 0 0 0 3px rgba(0, 121, 250, .3);
+}
+
+.myinput {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    border: 1px solid #cbd1d8;
+    font-size: 1rem;
+    line-height: 1.5;
+    background: #fff;
+    transition: all .2s ease-in-out;
+}
+
+.myinput:focus {
+    outline: 0;
+    border-color: #7bbaff;
+    box-shadow: 0 0 0 3px rgba(0, 121, 250, .3);
+}
+
+.mytextarea {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    appearance: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    border: 1px solid #cbd1d8;
+    font-size: 1rem;
+    line-height: 1.5;
+    resize: both;
+    overflow: auto;
+    background: #fff;
+    transition: all .2s ease-in-out;
+}
+
+.mytextarea:focus {
+    outline: 0;
+    border-color: #7bbaff;
+    box-shadow: 0 0 0 3px rgba(0, 121, 250, .3);
+}
+
+.hoverTable {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.hoverTable td, hoverTable th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.hoverTable tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+.hoverTable tr:hover {
+    background-color: #ddd;
+}
+
+.hoverTable th {
+    font-size: 14px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 7px;
+    text-align: left;
+    background-color: #7bbaff;
+    color: white;
+}
+
+/* The navbar container */
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+}
+
+/* Navbar links */
+.topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Links - change color on hover */
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+    padding-top: 20px;
+}
+
+.shadowlabel {
+    text-shadow: 2px 2px 5px gray;
+    font-size: 14px;
+    padding: 5px;
+}
+
+.mylabel {
+    font-size: 14px;
+    padding: 5px;
+}
+.mysubmit {
+    display: inline-block;
+    padding: 5px 15px;
+    font-size: 12px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #7bbaff;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+.mysubmit span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.mysubmit span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.mysubmit:hover span {
+    padding-right: 25px;
+}
+
+.mysubmit:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+.mysubmit:hover {
+    background-color: #7baaff
+}
+
+.mysubmit:active {
+    background-color: #6666ff;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+.mysubmit:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+}
+
+.pagination {
+    display: inline-block;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    font-size: small;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+.pagination a.active {
+    background-color: #7bbaff;
+    color: white;
+    border-radius: 5px;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #ddd;
+    border-radius: 5px;
+}
+
+.pagination label {
+    color: black;
+    float: left;
+    font-size: medium;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+.pagination a.next-prev {
+    color: black;
+    float: left;
+    font-size: medium;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+.pagination label.active {
+    background-color: #7bbaff;
+    color: white;
+    border-radius: 5px;
+}
+
+.pagination label:hover:not(.active) {
+    background-color: #ddd;
+    border-radius: 5px;
+}
+
+.pagination label.inactive {
+    background-color: white;
+    border-radius: 5px;
+}
+
+.pagination label:hover.inactive {
+    background-color: white;
+    border-radius: 5px;
+}
+
+.myImageButton{
+    background-repeat: no-repeat;
+    display: inline-block;
+    color: white;
+    border: 0 none;
+    outline: 0 none;
+    width: 25px;
+    height: 25px;
+    alignment: center;
+    text-align: center;
+    text-decoration: none;
+}
+.myImageButton:hover, .myImageButton:active, myImageButton:focus{
+    border: 0 none;
+    outline: 0 none;
+}
+
+.myDisabledImageButton{
+    background-repeat: no-repeat;
+    display: inline-block;
+    color: white;
+    border: 0 none;
+    outline: 0 none;
+    opacity: 0.5;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    alignment: center;
+    text-decoration: none;
+}
+.myDisabledImageButton:hover, .myDisabledImageButton:active, myDisabledImageButton:focus{
+    border: 0 none;
+    outline: 0 none;
+    opacity: 0.5;
 }

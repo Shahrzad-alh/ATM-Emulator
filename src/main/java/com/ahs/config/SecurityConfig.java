@@ -48,24 +48,31 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                                                         AuthenticationException exception) throws IOException, ServletException {
 
                         UserInfo activeUserInfo = userInfoRep.findByUserName(request.getParameter("app_username"));
+                        String redirectUrl = "";
+                        if(activeUserInfo == null) {
+                            //Username not found -->> User is unauthorized for the service
+                            redirectUrl = request.getContextPath() + "/app/error";
+                        }else {
+                            activeUserInfo.setFailedAttempt((short) (activeUserInfo.getFailedAttempt() + 1));
+                            redirectUrl = request.getContextPath() + "/app/errBadCredential";
 
-                        activeUserInfo.setFailedAttempt((short) (activeUserInfo.getFailedAttempt() + 1));
-                        String redirectUrl = request.getContextPath() +  "/app/errBadCredential";
+                            //Count User failedAttempts
+                            if (activeUserInfo.getFailedAttempt() >= MAX_FAILED_ATTEMPTS) {
+                                //Set AccountLock = true if User failedAttempts are > 3
 
-                        if(activeUserInfo.getFailedAttempt() >= MAX_FAILED_ATTEMPTS)
-                        {
-                            activeUserInfo.setLockTime();
-                            activeUserInfo.setAccountLocked(true);
-                            redirectUrl = request.getContextPath() +  "/app/errLockedAccount";
+                                activeUserInfo.setLockTime();
+                                activeUserInfo.setAccountLocked(true);
+                                redirectUrl = request.getContextPath() + "/app/errLockedAccount";
+                            }
+                            userInfoRep.save(activeUserInfo);
+                            String error = exception.getMessage();
+                            System.out.println("A failed login attempt. Reason: " + error);
                         }
-                        userInfoRep.save(activeUserInfo);
-                        String error = exception.getMessage();
-                        System.out.println("A failed login attempt. Reason: " + error);
-
                         response.sendRedirect(redirectUrl);
                     }
                 })
                 .successHandler(new AuthenticationSuccessHandler() {
+                    //If User successfully logged in Before 3rd failure resets failureAttempt
                     @Override
                     public void onAuthenticationSuccess(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Authentication authentication) throws IOException, ServletException {
                         UserInfo activeUserInfo = userInfoRep.findByUserName(httpServletRequest.getParameter("app_username"));
@@ -74,10 +81,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         httpServletResponse.sendRedirect("/app/secure/account-details");
                     }
                 })
-                .and().logout()       //logout configuration
+                .and().logout()
                 .logoutUrl("/app-logout")
                 .logoutSuccessUrl("/app/login")
-                .and().exceptionHandling() //exception handling configuration
+                .and().exceptionHandling()
                 .accessDeniedPage("/app/error");
     }
 
