@@ -14,4 +14,4 @@ Chech the `src/main/resources/application.properties` if you prefer other creden
 A SQL script file named `atm.sql` located in root directory. Run the script. it creates a `atm` database with tables `users` and `accounts` filled with information.
 In your IDE, build the project with Maven 4.0, and run 'Application.java`. 
 
-Use decrypted PIN numbers as password. Decrypted PIN numbers are located in atm.sql (commented after each row)
+Use decrypted PIN numbers which are located in atm.sql (comments after each row)
