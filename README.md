@@ -11,7 +11,7 @@ How to Run:
 Install Java 8, MySQL 5.1 or above and a proper IDE for Java and MySQL (I used IntelliJ IDEA and Navicat).
 Configure MySQL with username `root` and password `Admin123`. 
 Chech the `src/main/resources/application.properties` if you prefer other credentials.
-A SQL script file named `atm.sql` located in root directory. Run the script creates a database called `atm` with tables `users` and `accounts` filled with information.
+A SQL script file named `atm.sql` located in root directory. Run the script. it creates a `atm` database with tables `users` and `accounts` filled with information.
 In your IDE, build the project with Maven 4.0, and run 'Application.java`. 
 
 Use decrypted PIN numbers as password. Decrypted PIN numbers are located in atm.sql (commented after each row)
